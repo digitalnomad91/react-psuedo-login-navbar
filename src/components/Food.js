@@ -1,12 +1,9 @@
 import React from 'react';
-const foodItems = [
-    'test',
-    '-test2'
-]
+
+/* Food page content */
 function Food() {
     return <div>
         THIS IS THE FOODPAGE
-        {foodItems}
     </div>;
 }
 

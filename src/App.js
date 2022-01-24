@@ -3,12 +3,12 @@ import Home from './components/Home';
 import Food from './components/Food';
 import Stuff from './components/Stuff';
 import StuffItem from './components/StuffItem';
-
 import NavigationBar from './components/NavigationBar';
 import 'react-bootstrap/dist/react-bootstrap.min.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* 404 page not found */
 function NotFound() {
   return (
     <div>Not FOund</div>
@@ -17,6 +17,7 @@ function NotFound() {
 
 function App() {
 
+  /* Create user state variable for logged in / out state */
   const [user, setUser] = react.useState({});
 
   return (
