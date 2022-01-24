@@ -24,11 +24,15 @@ function NavigationBar(props) {
     const divStyle = {
         display: 'inline',
       };
-    let loginLink, username;
+    let loggedinLinks, username;
     if (typeof(props.user.id) === "undefined") {      
-        loginLink = <Nav.Link style={divStyle} href="#" onClick={e => loginCallback()}>Login</Nav.Link>;
+        loggedinLinks = <div style={divStyle}><Nav.Link style={divStyle} href="#" onClick={e => loginCallback()}>Login</Nav.Link></div>;
     } else {      
-        loginLink = <Nav.Link style={divStyle} href="#" onClick={e => logoutCallback()}>Logout</Nav.Link>;
+        loggedinLinks = <div style={divStyle}>
+                        <Link style={divStyle} className="nav-link" to="/food">Food</Link>
+                        <Link style={divStyle} className="nav-link" to="/stuff">Stuff</Link>
+                        <Nav.Link style={divStyle} href="#" onClick={e => logoutCallback()}>Logout</Nav.Link>
+                    </div>;
         username = <span style={divStyle}>({props.user.username})</span>;    
     }
 
@@ -38,10 +42,8 @@ function NavigationBar(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                <Link style={divStyle} className="nav-link" to="/">Home</Link>
-                <Link style={divStyle} className="nav-link" to="/food">Food</Link>
-                <Link style={divStyle} className="nav-link" to="/stuff">Stuff</Link>
-                {loginLink} {username}
+                <div style={divStyle}><Link style={divStyle} className="nav-link" to="/">Home</Link></div>
+                {loggedinLinks} {username}
             </Nav>
         </Navbar.Collapse>
     </Navbar>
