@@ -1,10 +1,12 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 
 function NavigationBar(props) {
 
     let navigate = useNavigate();
+    const location = useLocation();
+    console.log(location.pathname);
 
     const loginCallback = () => {
         alert("logged in");
@@ -29,8 +31,8 @@ function NavigationBar(props) {
         loggedinLinks = <div style={divStyle}><Nav.Link style={divStyle} href="#" onClick={e => loginCallback()}>Login</Nav.Link></div>;
     } else {      
         loggedinLinks = <div style={divStyle}>
-                        <Link style={divStyle} className="nav-link" to="/food">Food</Link>
-                        <Link style={divStyle} className="nav-link" to="/stuff">Stuff</Link>
+                        <Link style={divStyle} className={location.pathname == '/food' ? 'nav-link fw-bold' : 'nav-link'} to="/food">Food</Link>
+                        <Link style={divStyle} className={location.pathname.includes("/stuff") ? 'nav-link fw-bold' : 'nav-link'} to="/stuff">Stuff</Link>
                         <Nav.Link style={divStyle} href="#" onClick={e => logoutCallback()}>Logout</Nav.Link>
                     </div>;
         username = <span style={divStyle}>({props.user.username})</span>;    
@@ -42,7 +44,7 @@ function NavigationBar(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                <div style={divStyle}><Link style={divStyle} className="nav-link" to="/">Home</Link></div>
+                <div style={divStyle}><Link style={divStyle} className={location.pathname == '/' ? 'nav-link fw-bold' : 'nav-link'} to="/">Home</Link></div>
                 {loggedinLinks} {username}
             </Nav>
         </Navbar.Collapse>
