@@ -6,7 +6,7 @@ import StuffItem from './components/StuffItem';
 
 import NavigationBar from './components/NavigationBar';
 import 'react-bootstrap/dist/react-bootstrap.min.js';
-import { BrowserRouter, Routes, Route, Link, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NotFound() {

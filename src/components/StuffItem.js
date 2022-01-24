@@ -1,5 +1,4 @@
-import { Routes, Route, useParams  } from "react-router-dom";
-import react, { useEffect, useState, useCallback } from 'react';
+import {  useParams  } from "react-router-dom";
 import data from "../items.json";
 
 function StuffItem() {
